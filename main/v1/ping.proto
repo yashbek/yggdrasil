@@ -1,5 +1,5 @@
 syntax = "proto3";
-package proto;
+package main.v1;
 
 message PingRequest {}
 

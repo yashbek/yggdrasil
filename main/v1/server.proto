@@ -1,10 +1,10 @@
 syntax = "proto3";
-package proto;
+package main.v1;
 
-import "proto/ping.proto";
+import "main/v1/ping.proto";
 import "google/api/annotations.proto";
 
-service Main {
+service MainService {
     rpc Ping(PingRequest) returns (PingResponse) {
         option (google.api.http) = {
             post: "/"
