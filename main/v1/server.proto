@@ -1,0 +1,14 @@
+syntax = "proto3";
+package proto;
+
+import "proto/ping.proto";
+import "google/api/annotations.proto";
+
+service Main {
+    rpc Ping(PingRequest) returns (PingResponse) {
+        option (google.api.http) = {
+            post: "/"
+            body: "*"
+        };
+    }
+}
