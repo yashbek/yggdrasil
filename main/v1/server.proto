@@ -8,7 +8,6 @@ service MainService {
     rpc Ping(PingRequest) returns (PingResponse) {
         option (google.api.http) = {
             get: "/ping"
-            body: "*"
         };
     }
 }
