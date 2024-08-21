@@ -10,21 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the initial repository (Repo A)
-      - name: Checkout repository A
+      - name: checkout
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # Clone the destination repository (Repo B, y2j)
+      # Clone y2j
       - name: Clone Repo B (y2j)
         run: |
-          git clone https://${{ secrets.PAT }}@github.com/${{ env.ORG_NAME }}/y2j.git
-        env:
-          ORG_NAME: yashbek
+          git clone https://${{ secrets.PAT }}@github.com/yashbek/y2j.git
 
-      # Run your build script inside Repo B
-      - name: Run build script in Repo B
+      # install buf & build
+      - name: Run build script in y2j
         run: |
           BIN="/usr/local/bin" && \
           VERSION="1.37.0" && \
@@ -37,14 +34,14 @@ jobs:
           git -c http.extraheader="AUTHORIZATION: basic $(echo -n x-access-token:${{ secrets.PAT }} | base64)" submodule update --recursive --remote
           ./build.sh
 
-      # Commit and push changes back to Repo B
-      - name: Commit and Push changes to Repo B
+      # add, commit, and push
+      - name: add, commit, and push
         run: |
           cd y2j
           git config --global user.email "yazbek0890@gmail.com"
           git config --global user.name "yashbek"
           git add -A
-          git commit -m "Automated commit from GitHub Actions"
+          git commit -m "bump"
           git push origin master
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
