@@ -26,6 +26,12 @@ jobs:
       # Run your build script inside Repo B
       - name: Run build script in Repo B
         run: |
+          BIN="/usr/local/bin" && \
+          VERSION="1.37.0" && \
+          curl -sSL \
+          "https://github.com/bufbuild/buf/releases/download/v${VERSION}/buf-$(uname -s)-$(uname -m)" \
+          -o "${BIN}/buf" && \
+          chmod +x "${BIN}/buf"
           cd y2j
           git submodule init
           git -c http.extraheader="AUTHORIZATION: basic $(echo -n x-access-token:${{ secrets.PAT }} | base64)" submodule update --recursive --remote
