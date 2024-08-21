@@ -39,7 +39,6 @@ jobs:
           git config --global user.name "yashbek"
           git clone https://${{ env.ORG_NAME }}:${{ secrets.PAT }}@github.com/${{ env.ORG_NAME }}/y2j.git
           cd y2j
-          git submodule update --remote
           git submodule update --init
           ./build.sh
           git add -A
