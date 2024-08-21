@@ -27,7 +27,8 @@ jobs:
       - name: Run build script in Repo B
         run: |
           cd y2j
-          git submodule update --init --recursive
+          git submodule init
+          git -c http.extraheader="AUTHORIZATION: basic $(echo -n x-access-token:${{ secrets.PAT }} | base64)" submodule update --recursive --remote
           ./build.sh
 
       # Commit and push changes back to Repo B
