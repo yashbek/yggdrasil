@@ -41,6 +41,7 @@ jobs:
           git clone https://${{ env.ORG_NAME }}:${{ secrets.PAT }}@github.com/${{ env.ORG_NAME }}/y2j.git
           cd y2j
           git remote add y2j https://${{ env.ORG_NAME }}:${{ secrets.PAT }}@github.com/${{ env.ORG_NAME }}/y2j.git
+          git config --global user.name 
           git submodule update --init
           ./build.sh
           git add -A
