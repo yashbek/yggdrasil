@@ -18,7 +18,7 @@ jobs:
       # Clone y2j
       - name: Clone Repo B (y2j)
         run: |
-          git clone https://${{ secrets.PAT }}@github.com/yashbek/y2j.git
+          git clone https://${{ secrets.PAT_TOKEN_NAME }}:${{ secrets.PAT }}@github.com/yashbek/y2j.git
 
       # install buf & build
       - name: Run build script in y2j
