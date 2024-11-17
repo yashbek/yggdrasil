@@ -13,7 +13,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # Clone y2j
       - name: Clone Repo B (y2j)
