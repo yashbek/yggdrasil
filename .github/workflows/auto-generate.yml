@@ -13,12 +13,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
 
       # Clone y2j
       - name: Clone Repo B (y2j)
         run: |
-          git clone https://${{ secrets.PAT_TOKEN_NAME }}:${{ secrets.PAT }}@github.com/yashbek/y2j.git
+          git clone https://${{ secrets.PAT }}@github.com/yashbek/y2j.git
 
       # install buf & build
       - name: Run build script in y2j
