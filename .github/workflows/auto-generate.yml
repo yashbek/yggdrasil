@@ -64,6 +64,7 @@ jobs:
           git submodule init
           git -c http.extraheader="AUTHORIZATION: basic $(echo -n x-access-token:${{ secrets.PAT }} | base64)" submodule update --recursive --remote
           ./build.sh
+          ./import_google.sh
 
       # add, commit, and push
       - name: add, commit, and push
