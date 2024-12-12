@@ -3,7 +3,7 @@ package main.v1;
 
 message SignUpRequest {
     string email = 1;
-    password = 2;
+    string password = 2;
 }
 
 message SignUpResponse {
@@ -13,7 +13,7 @@ message SignUpResponse {
 
 message LoginRequest {
     string email = 1;
-    password = 2;
+    string password = 2;
 }
 
 message LoginResponse {
