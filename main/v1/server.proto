@@ -3,6 +3,7 @@ package main.v1;
 
 import "main/v1/ping.proto";
 import "main/v1/queue_up.proto";
+import "main/v1/auth.proto";
 import "google/api/annotations.proto";
 
 service MainService {
