@@ -16,4 +16,14 @@ service MainService {
             get: "/queue"
         };
     }
+    rpc QueueUp(SignUpRequest) returns (SignUpResponse) {
+        option (google.api.http) = {
+            post: "/signup"
+        };
+    }
+    rpc QueueUp(LoginRequest) returns (LoginResponse) {
+        option (google.api.http) = {
+            post: "/login"
+        };
+    }
 }
