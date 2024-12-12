@@ -3,7 +3,6 @@ package main.v1;
 
 import "main/v1/ping.proto";
 import "main/v1/queue_up.proto";
-import "main/v1/auth.proto";
 import "google/api/annotations.proto";
 
 service MainService {
@@ -15,16 +14,6 @@ service MainService {
     rpc QueueUp(QueueUpRequest) returns (QueueUpResponse) {
         option (google.api.http) = {
             get: "/queue"
-        };
-    }
-    rpc SignUp(SignUpRequest) returns (SignUpResponse) {
-        option (google.api.http) = {
-            post: "/signup"
-        };
-    }
-    rpc Login(LoginRequest) returns (LoginResponse) {
-        option (google.api.http) = {
-            post: "/login"
         };
     }
 }
