@@ -1,7 +1,9 @@
 syntax = "proto3";
 package main.v1;
 
-message QueueUpRequest {}
+message QueueUpRequest {
+    string id = 1;
+}
 
 message QueueUpResponse {
     string status = 1;

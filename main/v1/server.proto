@@ -13,7 +13,7 @@ service MainService {
     }
     rpc QueueUp(QueueUpRequest) returns (QueueUpResponse) {
         option (google.api.http) = {
-            post: "/queueup"
+            get: "/queueup"
         };
     }
 }
